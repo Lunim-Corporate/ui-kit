@@ -59,7 +59,8 @@ export { Item } from "./ui/item"
 export { Toaster } from "./ui/sonner"
 
 export { Combobox } from "./ui/combobox"
-export { DataTable, Column } from "./ui/data-table"
+export { DataTable } from "./ui/data-table"
+export type { Column } from "./ui/data-table"
 export { DatePicker } from "./ui/date-picker"
 export { Typography } from "./ui/typography"
 
