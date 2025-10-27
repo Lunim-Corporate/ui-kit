@@ -96,7 +96,6 @@ export function DataTable<T extends Record<string, string | number | boolean | n
   }
 
   const isAllSelected = selectedRows.length === filteredData.length && filteredData.length > 0
-  const isIndeterminate = selectedRows.length > 0 && selectedRows.length < filteredData.length
 
   return (
     <div className={cn("space-y-4", className)}>
@@ -120,9 +119,6 @@ export function DataTable<T extends Record<string, string | number | boolean | n
                   <Checkbox
                     checked={isAllSelected}
                     onCheckedChange={handleSelectAll}
-                    ref={(el) => {
-                      if (el) el.indeterminate = isIndeterminate
-                    }}
                   />
                 </TableHead>
               )}
