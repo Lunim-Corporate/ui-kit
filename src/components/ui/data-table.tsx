@@ -14,7 +14,7 @@ export interface Column<T> {
   key: keyof T
   label: string
   sortable?: boolean
-  render?: (value: any, row: T) => React.ReactNode
+  render?: (value: string | number | boolean | null, row: T) => React.ReactNode
 }
 
 export interface DataTableProps<T> {
@@ -26,7 +26,7 @@ export interface DataTableProps<T> {
   className?: string
 }
 
-export function DataTable<T extends Record<string, any>>({
+export function DataTable<T extends Record<string, string | number | boolean | null>>({
   data,
   columns,
   searchKey,

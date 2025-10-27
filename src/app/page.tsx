@@ -233,7 +233,7 @@ export default function Home() {
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm text-muted-foreground">
-                        Component found by searching for: "{searchQuery}"
+                        Component found by searching for: &ldquo;{searchQuery}&rdquo;
                       </p>
                     </CardContent>
                   </Card>
@@ -506,7 +506,7 @@ export default function Home() {
                   <FieldLabel>Email Address</FieldLabel>
                   <FieldContent>
                     <Input type="email" placeholder="Enter your email" />
-                    <FieldDescription>We'll never share your email with anyone else.</FieldDescription>
+                    <FieldDescription>We&apos;ll never share your email with anyone else.</FieldDescription>
                   </FieldContent>
                 </Field>
 
@@ -1093,7 +1093,7 @@ export default function Home() {
                   <div>
                     <Label htmlFor="email">Email</Label>
                     <Input id="email" placeholder="Enter your email" />
-                    <p className="text-sm text-muted-foreground mt-1">We'll never share your email.</p>
+                    <p className="text-sm text-muted-foreground mt-1">We&apos;ll never share your email.</p>
                   </div>
                   <div>
                     <Label htmlFor="password">Password</Label>
