@@ -13,7 +13,7 @@ export function CheckboxDemo() {
         <Checkbox 
           id="terms" 
           checked={checked}
-          onCheckedChange={setChecked}
+          onCheckedChange={(value) => setChecked(value === true)}
         />
         <Label htmlFor="terms">Accept terms and conditions</Label>
       </div>
