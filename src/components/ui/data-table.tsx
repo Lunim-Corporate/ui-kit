@@ -53,6 +53,9 @@ export function DataTable<T extends Record<string, string | number | boolean | n
         const aVal = a[sortKey]
         const bVal = b[sortKey]
         
+        if (aVal == null) return 1
+        if (bVal == null) return -1
+        
         if (aVal < bVal) return sortDirection === "asc" ? -1 : 1
         if (aVal > bVal) return sortDirection === "asc" ? 1 : -1
         return 0
