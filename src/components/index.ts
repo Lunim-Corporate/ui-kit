@@ -11,7 +11,7 @@ export { InputOTP, InputOTPGroup, InputOTPSlot } from "./ui/input-otp"
 export { Toggle } from "./ui/toggle"
 export { ToggleGroup, ToggleGroupItem } from "./ui/toggle-group"
 export { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form"
-export { Field, FieldControl, FieldDescription, FieldErrorMessage, FieldLabel } from "./ui/field"
+export { Field, FieldContent, FieldDescription, FieldError, FieldLabel, FieldGroup, FieldLegend, FieldSeparator, FieldSet, FieldTitle } from "./ui/field"
 export { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group"
 export { ButtonGroup } from "./ui/button-group"
 
