@@ -56,7 +56,7 @@ export { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 
 export { Calendar } from "./ui/calendar"
 export { Item } from "./ui/item"
-export { Sonner } from "./ui/sonner"
+export { Toaster } from "./ui/sonner"
 
 export { Combobox } from "./ui/combobox"
 export { DataTable, Column } from "./ui/data-table"
