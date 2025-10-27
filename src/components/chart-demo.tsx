@@ -17,7 +17,9 @@ export function ChartDemo() {
   return (
     <ChartContainer
       config={{
-        valueFormatter: (value) => `${value}`,
+        value: {
+          label: "Value"
+        }
       }}
       className="h-[200px] w-full"
     >
