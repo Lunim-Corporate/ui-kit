@@ -14,17 +14,78 @@ A complete component library built with Next.js, TypeScript, and Tailwind CSS, f
 
 ## 🎨 Design System
 
-### Typography
-- **Headings**: Inter Bold (700 weight)
-- **Body Text**: Noto Sans Display (14pt)
-- **Font Sizes**: 12pt minimum, 96pt maximum
+### Color Palette & Theme Tokens
+Lunim uses OKLCH for perceptually-uniform color. Core tokens are defined in `src/app/globals.css` and mapped to Tailwind via CSS variables.
 
-### Color Palette
-- **Primary**: Lunim Blue (`oklch(0.8172 0.1251 222.0133)`)
-- **Background**: Clean whites and subtle grays
-- **Dark Mode**: Professional dark theme with proper contrast
+```css
+/* Light theme */
+:root {
+  --primary: oklch(0.8172 0.1251 222.0133);
+  --primary-foreground: oklch(0 0 0);
+  --background: oklch(0.9551 0 0);
+  --foreground: oklch(0.3211 0 0);
+  --card: oklch(0.9702 0 0);
+  --card-foreground: oklch(0.3211 0 0);
+  --muted: oklch(0.8853 0 0);
+  --muted-foreground: oklch(0.5103 0 0);
+  --accent: oklch(0.8078 0 0);
+  --accent-foreground: oklch(0.3211 0 0);
+  --border: oklch(0.8576 0 0);
+  --input: oklch(0.9067 0 0);
+  --ring: oklch(0.4891 0 0);
+}
+
+/* Dark theme */
+.dark {
+  --background: oklch(0.1374 0.0464 255.7321);
+  --foreground: oklch(0.8853 0 0);
+  --card: oklch(0.2435 0 0);
+  --card-foreground: oklch(0.8853 0 0);
+  --primary: oklch(0.8172 0.1251 222.0133);
+  --primary-foreground: oklch(0 0 0);
+  --muted: oklch(0.2850 0 0);
+  --muted-foreground: oklch(0.5999 0 0);
+  --accent: oklch(0.3715 0 0);
+  --accent-foreground: oklch(0.8853 0 0);
+  --border: hsl(0 0% 20%);
+  --input: oklch(0.3092 0 0);
+  --ring: oklch(0.7058 0 0);
+}
+```
+
+Notes:
+- **Brand Blue**: `--primary` is the Lunim blue used for focus, hover, and selected states.
+- **Contrast**: Text on dark surfaces inherits light foreground; primary foreground remains black for legibility on primary surfaces.
+
+### Typography System
+- **Fonts**: Headings use `Inter` (700). Body uses `Noto Sans Display`.
+- **Base size**: `14px` body with `clamp(12px, 1rem, 96px)` safety.
+- **Utilities**:
+  - Headings: `h1` 22px, `h2` 18px, `h3` 16px, `h4` 15px, `h5` 14px, `h6` 13px
+  - Body: `.text-small` 12px, `.text-large` 16px, `.text-caption` 12px/300
+
+### Spacing & Layout Rules
+- **Spacing scale**: quarter-rem base (`--spacing: 0.25rem`) aligned with Tailwind `p-1`, `p-2`, etc.
+- **Radii**: `--radius` = 0.35rem; derived tokens `--radius-sm|md|lg|xl` drive component rounding.
+- **Shadows**: tokenized `--shadow-2xs` → `--shadow-2xl` for consistent elevation.
+- **Containers**: prefer responsive width utilities (`max-w-screen-lg`/`xl`) and `grid`/`flex` layouts.
+- **Focus & Rings**: rely on `--ring` for accessible outlines; interactive states use the brand blue.
 
 ## 📦 Components
+
+### Component Reference
+High-level guidance on notable components and Lunim-specific variants.
+
+- **Button**: `primary` (blue, white text), `secondary` (transparent, blue text + border), `inactive` (light gray, no border), `ghost` (subtle). All adopt blue hover/active.
+- **Menus**: `Menubar`, `DropdownMenu`, `Select`, `ContextMenu` — items highlight with blue on hover/focus/selected. Built on Radix states.
+- **Navigation**: `Tabs`, `Pagination`, `NavigationMenu`, `Sidebar` — selected and active states use brand blue; dark mode text inherits light foreground.
+- **Forms**: `Field`, `InputGroup`, `NativeSelect`, `Combobox`, `Checkbox`, `Switch` — consistent spacing and validation surfaces; `FieldContent` and `FieldError` are available.
+- **Data**: `DataTable` with sorting/filtering; null-safe sorts; simplified checkbox selection (no indeterminate).
+- **Overlays**: `Dialog`, `Popover`, `Sheet`, `AlertDialog`, `HoverCard` — unified elevations and border tokens.
+
+Customization notes:
+- Prefer tokens over hard-coded colors. Use Tailwind classes like `text-primary`, `bg-primary`, `text-foreground` which resolve to tokens.
+- In dark mode, text defaults to light foreground; primary foreground remains black for legibility on primary surfaces.
 
 ### Form Components
 - Buttons (Primary, Secondary, Inactive, Ghost, Destructive)
@@ -99,6 +160,39 @@ import { Button, Card, Input } from '@/components/ui'
   </CardHeader>
   <CardContent>Content</CardContent>
 </Card>
+```
+
+### Example Patterns
+Common JSX/Tailwind snippets that reflect Lunim branding.
+
+```tsx
+// Secondary button: transparent with blue text and border
+<Button variant="secondary">Learn more</Button>
+
+// Inactive button: light gray, no border
+<Button variant="inactive">Disabled</Button>
+
+// Menu item: Radix state-driven highlight (handled by component styles)
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button>Open</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuItem>Profile</DropdownMenuItem>
+    <DropdownMenuItem>Billing</DropdownMenuItem>
+  </DropdownMenuContent>
+ </DropdownMenu>
+
+// Card spacing and layout
+<div className="grid gap-4 md:grid-cols-2">
+  <Card className="p-4 shadow-sm">
+    <CardHeader>
+      <CardTitle>Analytics</CardTitle>
+    </CardHeader>
+    <CardContent className="space-y-4">...</CardContent>
+  </Card>
+  <Card className="p-4 shadow-sm">...</Card>
+</div>
 ```
 
 ### Theme Toggle

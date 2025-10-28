@@ -4,7 +4,7 @@
 
 All Shadcn/ui components have been rebranded with Lunim's sophisticated design system featuring:
 - **Lunim Purple** primary color
-- **Lunim Teal** accent color  
+- **Lunim Teal** accent color
 - **Inter Bold** typography for headings
 - **Noto Sans Display** for body text
 - **Complete dark mode** support
