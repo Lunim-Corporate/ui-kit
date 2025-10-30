@@ -192,7 +192,7 @@
   --background: oklch(0.1374 0.0464 255.7321);
   /* Not-quite-white text to #F2F2F2 */
   --foreground: oklch(0.96 0 0);
-  --card: oklch(0.2435 0 0);minal
+  --card: oklch(0.2435 0 0);
   --card-foreground: oklch(0.96 0 0);
   --popover: oklch(0.2435 0 0);
   --popover-foreground: oklch(0.96 0 0);
