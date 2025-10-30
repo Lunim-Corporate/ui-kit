@@ -55,7 +55,8 @@
   --card-foreground: oklch(0.3211 0 0);
   --popover: oklch(0.9702 0 0);
   --popover-foreground: oklch(0.3211 0 0);
-  --primary: oklch(0.8172 0.1251 222.0133);
+  /* Brand blue (light mode) → darker: #1A6BB2 */
+  --primary: oklch(0.68 0.12 235);
   --primary-foreground: oklch(0 0 0);
   --secondary: oklch(0.9067 0 0);
   --secondary-foreground: oklch(0.3211 0 0);
@@ -63,7 +64,8 @@
   --muted-foreground: oklch(0.5103 0 0);
   --accent: oklch(0.8078 0 0);
   --accent-foreground: oklch(0.3211 0 0);
-  --destructive: oklch(0.5594 0.1900 25.8625);
+  /* Destructive to #A93935 */
+  --destructive: #A93935;
   --destructive-foreground: oklch(1.0000 0 0);
   --border: oklch(0.8576 0 0);
   --input: oklch(0.9067 0 0);
@@ -104,7 +106,7 @@
 }
 
 .dark {
-  color: oklch(0.8853 0 0) !important;
+  color: oklch(0.96 0 0);
 }
 
 .dark * {
@@ -116,43 +118,46 @@
 }
 
 .dark .text-foreground {
-  color: oklch(0.8853 0 0) !important;
+  /* Not-quite-white text to #F2F2F2 equivalent */
+  color: oklch(0.96 0 0);
 }
 
 .dark .text-card-foreground {
-  color: oklch(0.8853 0 0) !important;
+  color: oklch(0.96 0 0);
 }
 
 .dark .text-popover-foreground {
-  color: oklch(0.8853 0 0) !important;
+  color: oklch(0.96 0 0);
 }
 
 .dark .text-muted-foreground {
-  color: oklch(0.5999 0 0) !important;
+  /* Moon Light Grey #BFC8CA approx */
+  color: oklch(0.84 0.02 225);
 }
 
 .dark .text-accent-foreground {
-  color: oklch(0.8853 0 0) !important;
+  color: oklch(0.96 0 0);
 }
 
 .dark .text-primary-foreground {
-  color: oklch(0 0 0) !important;
+  /* Keep primary foreground black for legibility on brand surfaces */
+  color: oklch(0 0 0);
 }
 
 .dark .text-primary {
-  color: oklch(0.8172 0.1251 222.0133) !important;
+  color: oklch(0.68 0.12 235);
 }
 
 .dark button[data-slot="button"].text-primary {
-  color: oklch(0.8172 0.1251 222.0133) !important;
+  color: oklch(0.68 0.12 235);
 }
 
 .dark .text-secondary-foreground {
-  color: oklch(0.8853 0 0) !important;
+  color: oklch(0.96 0 0);
 }
 
 .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-  color: oklch(0.8853 0 0) !important;
+  color: oklch(0.96 0 0);
 }
 
 .dark p, .dark span, .dark div {
@@ -172,33 +177,37 @@
 }
 
 .dark input {
-  color: oklch(0.8853 0 0) !important;
+  color: oklch(0.96 0 0);
 }
 
 .dark textarea {
-  color: oklch(0.8853 0 0) !important;
+  color: oklch(0.96 0 0);
 }
 
 .dark select {
-  color: oklch(0.8853 0 0) !important;
+  color: oklch(0.96 0 0);
 }
 
 .dark {
   --background: oklch(0.1374 0.0464 255.7321);
-  --foreground: oklch(0.8853 0 0);
-  --card: oklch(0.2435 0 0);
-  --card-foreground: oklch(0.8853 0 0);
+  /* Not-quite-white text to #F2F2F2 */
+  --foreground: oklch(0.96 0 0);
+  --card: oklch(0.2435 0 0);minal
+  --card-foreground: oklch(0.96 0 0);
   --popover: oklch(0.2435 0 0);
-  --popover-foreground: oklch(0.8853 0 0);
-  --primary: oklch(0.8172 0.1251 222.0133);
+  --popover-foreground: oklch(0.96 0 0);
+  /* Brand blue (dark mode) → #1A6BB2 */
+  --primary: oklch(0.68 0.12 235);
   --primary-foreground: oklch(0 0 0);
   --secondary: oklch(0.2178 0 0);
-  --secondary-foreground: oklch(0.8853 0 0);
+  --secondary-foreground: oklch(0.96 0 0);
   --muted: oklch(0.2850 0 0);
-  --muted-foreground: oklch(0.5999 0 0);
+  /* Moon Light Grey #BFC8CA approx */
+  --muted-foreground: oklch(0.84 0.02 225);
   --accent: oklch(0.3715 0 0);
-  --accent-foreground: oklch(0.8853 0 0);
-  --destructive: oklch(0.5594 0.1900 25.8625);
+  --accent-foreground: oklch(0.96 0 0);
+  /* Destructive to #A93935 */
+  --destructive: #A93935;
   --destructive-foreground: oklch(1.0000 0 0);
   --border: hsl(0 0% 20%);
   --input: oklch(0.3092 0 0);
@@ -248,6 +257,17 @@
     line-height: 1.4;
   }
   
+  /* DatePicker (react-day-picker) adjustments */
+  .rdp-day_selected,
+  .rdp-day_selected:focus-visible,
+  .rdp-day_selected:hover {
+    /* Text in highlighted calendar entry → deep space dark #141420 */
+    color: #141420;
+  }
+  .rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+    color: inherit;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-inter), system-ui, sans-serif;
     font-weight: 700;
